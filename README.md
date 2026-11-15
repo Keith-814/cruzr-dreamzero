@@ -1,6 +1,6 @@
 # Cruzr DreamZero
 
-面向 Cruzr S2「抓取 → 扫码 → 分拣」的实验工程。当前版本提取现有本地 Show-Harness 工程中的 MuJoCo 仿真基础，包含七自由度单臂 IK、夹爪、桌面方块抓放和相机接口。
+面向 Cruzr S2「抓取 → 扫码 → 分拣」的实验工程。当前版本包含从服务器已有 Show-Harness 仿真基础整理出的 MuJoCo 资产导入、按关节名的固定周期执行环境、七自由度 IK、夹爪、桌面方块抓放和相机接口。
 
 **当前尚未接入 DreamZero、真机 SDK、扫码器或运动流水线。** 抓放脚本使用已知物体位置的确定性轨迹，仅验证仿真与控制基础，不能代表学习策略成功率或真机性能。
 
@@ -15,6 +15,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -e .
 python scripts/import_assets.py --source-root /data1/oylx2
+python scripts/check_mujoco.py
 python -m unittest discover -s tests -v
 python scripts/smoke_cruzr_pick_place.py --verbose
 ```
@@ -25,6 +26,7 @@ python scripts/smoke_cruzr_pick_place.py --verbose
 export PYTHONPATH="$PWD/src"
 /data1/oylx2/show-harness/.venv-sim/bin/python -m unittest discover -s tests -v
 /data1/oylx2/show-harness/.venv-sim/bin/python scripts/smoke_cruzr_pick_place.py --verbose
+/data1/oylx2/show-harness/.venv-sim/bin/python scripts/check_mujoco.py
 ```
 
 渲染前视/腕部图片：
@@ -38,6 +40,7 @@ MUJOCO_GL=egl python scripts/smoke_cruzr_pick_place.py --render-dir outputs/smok
 ## 目录
 
 - `src/cruzr_sim/`：仿真会话、IK、初始姿态。
+- `src/cruzr_sim/config.py`、`builder.py`、`environment.py`：SDK 参考边界、场景生成和固定周期命名关节 API。
 - `scripts/`：本地模型导入与确定性抓放检查。
 - `tests/`：已有控制器回归测试。
 - `models/`：模型导入说明，本地模型不进入 Git。
@@ -55,3 +58,21 @@ MUJOCO_GL=egl python scripts/smoke_cruzr_pick_place.py --render-dir outputs/smok
 5. 仿真闭环通过后，进行真机 shadow 与单臂低速验证。
 
 来源与许可边界见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。验证范围见 [docs/validation.md](docs/validation.md)。
+
+## 服务器运行入口
+
+在 `/data1/oylx2` 有权访问现有模型的服务器上：
+
+```bash
+git clone https://github.com/Keith-814/cruzr-dreamzero.git
+cd cruzr-dreamzero
+bash scripts/setup_sim.sh
+.venv-sim/bin/python scripts/import_assets.py --source-root /data1/oylx2
+.venv-sim/bin/python scripts/check_mujoco.py
+MUJOCO_GL=egl .venv-sim/bin/python scripts/run_sim.py --mode hold --seconds 2
+MUJOCO_GL=egl .venv-sim/bin/python scripts/run_sim.py --mode pick-place --render-dir outputs/smoke
+```
+
+`run_sim.py` 的 `pick-place` 仍是 oracle 位置控制，用于验证仿真控制链路，不是视觉策略，也不是 DreamZero。服务器上建议先用 `--mode hold` 检查模型、驱动和 EGL，再做渲染。
+
+SDK 对照和仿真参数边界见 [`docs/sdk-reference.md`](docs/sdk-reference.md) 与 [`configs/mujoco.toml`](configs/mujoco.toml)。

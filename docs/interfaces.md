@@ -4,6 +4,8 @@
 
 `MujocoCruzrSession.get_observation()` 当前仅含 `agentview`、`wrist`、`ee_pose`、`gripper_width`。这不是 DreamZero 官方观测协议。
 
+新的 `CruzrEnvironment` 是后续策略接入的基础 API：`reset()` 返回命名关节位置、命名关节速度、夹爪开口和仿真时间；`step(joint_position, gripper_width_m)` 每次推进配置中的固定控制周期，按 SDK 关节名顺序接收 7 个右臂位置（弧度）和夹爪开口（米），并施加速度限幅。它目前是关节动作接口，不是 DreamZero 已确认的动作协议。
+
 控制器一次末端指令通过 IK、120 步插值与 60 步稳定推进；夹爪调用推进 180 个物理步。当前 MJCF 时间步为 0.002s，因此一次调用约推进 0.36s 仿真时间。它不是固定频率动作块接口，也不模拟网络推理延迟。模型训练数据频率必须与未来执行语义对齐。
 
 DreamZero 集成前需要补充：按统一时间戳记录图像、关节、夹爪和任务；确定关节或末端动作、绝对或相对语义；实现固定频率动作块执行及新观测刷新；匹配模型的相机布局和本体配置。不得直接把 DROID 输出维度当作 Cruzr 控制指令。

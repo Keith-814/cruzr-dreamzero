@@ -4,10 +4,10 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cruzr-dreamzero"
-version = "0.1.0"
+version = "0.2.0"
 description = "Cruzr S2 MuJoCo foundation for future DreamZero adaptation"
 requires-python = ">=3.11"
-dependencies = ["mujoco==4.0.1", "numpy>=1.26,<3", "opencv-python-headless>=4.8,<5"]
+dependencies = ["mujoco==4.0.1", "numpy>=1.26,<3", "opencv-python-headless>=4.8,<5", "tomli>=2; python_version < '3.11'"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
