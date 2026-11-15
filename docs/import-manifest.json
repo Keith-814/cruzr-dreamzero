@@ -1,0 +1,37 @@
+{
+  "upstream": "https://github.com/showlab/Show-Harness",
+  "upstream_commit": null,
+  "note": "Local snapshot has no .git; upstream commit and authorship of local Cruzr extensions are unverified.",
+  "files": [
+    {
+      "source": "/data1/oylx2/show-harness/sim/ik.py",
+      "destination": "src/cruzr_sim/ik.py",
+      "source_sha256": "87deb6a9bb09f93530f416c9ae5c4297a74bba17e1fb9b116e05902df637a919",
+      "snapshot_date": "2026-11-15"
+    },
+    {
+      "source": "/data1/oylx2/show-harness/sim/scene.py",
+      "destination": "src/cruzr_sim/scene.py",
+      "source_sha256": "b88024d4c27cc1a29e90afef3f60f18e04aa2765ca23c44d685646390f0c20b8",
+      "snapshot_date": "2026-11-15"
+    },
+    {
+      "source": "/data1/oylx2/show-harness/sim/mujoco_env.py",
+      "destination": "src/cruzr_sim/mujoco_env.py",
+      "source_sha256": "a3c6d57e7a0815b9272a33558920c367365669bb271a3c2c5045ee7fedd96291",
+      "snapshot_date": "2026-11-15"
+    },
+    {
+      "source": "/data1/oylx2/show-harness/tools/smoke_cruzr_pick_place.py",
+      "destination": "scripts/smoke_cruzr_pick_place.py",
+      "source_sha256": "5f3538354c79a6e9c3c77fffe07b537e20cb6c4ce1e417b3872aadb165bc519e",
+      "snapshot_date": "2026-11-15"
+    },
+    {
+      "source": "/data1/oylx2/show-harness/tests/test_cruzr_mujoco.py",
+      "destination": "tests/test_cruzr_mujoco.py",
+      "source_sha256": "1e41a73bf3b369dd582f152dc428f3086e7bdf6a853dc332856b0e20f2953a3d",
+      "snapshot_date": "2026-11-15"
+    }
+  ]
+}

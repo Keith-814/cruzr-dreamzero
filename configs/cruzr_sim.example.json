@@ -1,0 +1,13 @@
+{
+  "status": "reference_only_not_loaded_by_current_scripts",
+  "arm": "R",
+  "model": "models/cruzr_s2/scene.xml",
+  "position_unit": "metres",
+  "joint_unit": "radians",
+  "ee_quaternion_order": "wxyz",
+  "ee_frame": "world",
+  "ee_origin": "gripper_base",
+  "tip_offset_m": 0.22,
+  "cameras": ["front_cam", "R_wrist_cam"],
+  "dreamzero_integration": "not_implemented"
+}
