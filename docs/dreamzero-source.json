@@ -1,0 +1,783 @@
+{
+  "repository": "https://github.com/dreamzero0/dreamzero",
+  "commit": "ab790c198fbce33503358efbbd4187ce9a89adf3",
+  "import_date": "2026-11-15",
+  "modifications": false,
+  "note": "Complete upstream tracked-file snapshot, including official debug input videos; no weights or user datasets.",
+  "files": [
+    {
+      "path": ".gitignore",
+      "git_blob": "c359d1decacfd23401f554bdb2dc657e14a48567",
+      "mode": "100644",
+      "sha256": "7ba0fa7ad0af620a137ccb9ea3c51b3c0c3a46e3fcefdad561bb8a37ec12f554"
+    },
+    {
+      "path": "COPYRIGHT",
+      "git_blob": "dd908a2529902a5e576649f2a9064c34a8b048d4",
+      "mode": "100644",
+      "sha256": "4e021175692dd5063d16883f306197da8fd9dd089249987b3fc86c98f08f2e2c"
+    },
+    {
+      "path": "LICENSE",
+      "git_blob": "0a3f705806bf29ff9db3252d5da4d371fde38c20",
+      "mode": "100644",
+      "sha256": "8f2f9955895e664d84a98ff47debe8d4aaa76665afec7d8d3f1efa36c395d849"
+    },
+    {
+      "path": "README.md",
+      "git_blob": "263d7670258132e10e6d40cb0205bf9e613260fe",
+      "mode": "100644",
+      "sha256": "e67ac507e96ebd9269eeeccc87a287c865fd5b905c8bca99de96e00bcefbff7c"
+    },
+    {
+      "path": "debug_image/exterior_image_1_left.mp4",
+      "git_blob": "6801edaec6796366abb881adb5585fcc08c5a335",
+      "mode": "100644",
+      "sha256": "17ff12f98fbf1b73af36606a2569a38f83574210af17768c86e25efeb2e4220a"
+    },
+    {
+      "path": "debug_image/exterior_image_2_left.mp4",
+      "git_blob": "57f98c27440339c8e02fee15cd4bf9694f3844f8",
+      "mode": "100644",
+      "sha256": "6f3260c8c2b7489ec03d712a7b666e6947f876a2339802b3da46e26eaa620a9d"
+    },
+    {
+      "path": "debug_image/wrist_image_left.mp4",
+      "git_blob": "95b7d61e82c50cdc003b8a083a3881002942b02c",
+      "mode": "100644",
+      "sha256": "6a32bcd9c6fa90760ee2319a5aa5fd5dbc772cdf9d38f8ad50aa694250d79736"
+    },
+    {
+      "path": "docs/DATASET_TO_GEAR_AND_TRAIN.md",
+      "git_blob": "3b9c462ce8723d831a49548b166639c5ee91af2f",
+      "mode": "100644",
+      "sha256": "29e736edd6605d0744db458604387cac78e5b2e0f8bd9cbcb51350365d4a80a8"
+    },
+    {
+      "path": "docs/DROID_CONVERSION.md",
+      "git_blob": "e2f316dbc44ceaa0085355d8d5933ab1d5307764",
+      "mode": "100644",
+      "sha256": "dbaaec087a5c63a98251402d39cd6936d37ca1a537d3de7531e91fc438fc4100"
+    },
+    {
+      "path": "docs/WAN22_BACKBONE.md",
+      "git_blob": "7e9bdefa9c90414496d71c35d00297256dad46b1",
+      "mode": "100644",
+      "sha256": "05e4c7fe65a199d6bb095957c5373cfa81440012adabdde44ab29c6393e3bd99"
+    },
+    {
+      "path": "eval_utils/policy_client.py",
+      "git_blob": "5511ff3afdad382e02fd04fc72f018e3fcfbb80c",
+      "mode": "100644",
+      "sha256": "4f9f062bdc5bec081a459b75a29825c0438f15d22da601e20305e843cd05b5f1"
+    },
+    {
+      "path": "eval_utils/policy_server.py",
+      "git_blob": "9b34bb3bd66064f9d6e83707c3181d7bc3c15624",
+      "mode": "100644",
+      "sha256": "5c541300759ac211aa00639223e707c80a12bf548520a70981162b8a0c534117"
+    },
+    {
+      "path": "eval_utils/run_sim_eval.py",
+      "git_blob": "cb194e77113a09db0e8756cf27a5bc31e0e04e51",
+      "mode": "100644",
+      "sha256": "ef938678d40ed3f49f7d5dacc54b168eaa05682572dacd7bfe524ccc3a104384"
+    },
+    {
+      "path": "eval_utils/serve_dreamzero_wan22.py",
+      "git_blob": "725f652ebadecef6ed24b01a20a052e44cb19871",
+      "mode": "100644",
+      "sha256": "9d0a33047039fea3d2174c1ab46259c3c9b6e4fc1b3f67b9c7e53efcb93a7c5f"
+    },
+    {
+      "path": "groot/__init__.py",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "groot/control/__init__.py",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "groot/control/tensorrt_utils.py",
+      "git_blob": "74e25eb85698d6e5736d3a8708fe4882aa39db87",
+      "mode": "100644",
+      "sha256": "b32724aba5528ac829d06b6cf4729d141d7bf6c416bdafad7da6ea099c0cbe9c"
+    },
+    {
+      "path": "groot/vla/__init__.py",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "groot/vla/common/__init__.py",
+      "git_blob": "8b137891791fe96927ad78e64b0aad7bded08bdc",
+      "mode": "100644",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "groot/vla/common/utils/__init__.py",
+      "git_blob": "762cc7c5bd7c6231b10f1155ed1f3c83ae933ac0",
+      "mode": "100644",
+      "sha256": "3fff1b16cfaa5d8ef454c4e289d4e11bf69d02bdfdd11557a298f8f82f5f0ea3"
+    },
+    {
+      "path": "groot/vla/common/utils/data_structure/__init__.py",
+      "git_blob": "c3e40684ae7be6d8a216204a4d89b6c5352a72f2",
+      "mode": "100644",
+      "sha256": "e8f80e2a2b1ec61f14bee79697ce5f7477f9b578991683421b80ef8aff3f0eb7"
+    },
+    {
+      "path": "groot/vla/common/utils/data_structure/shape_utils.py",
+      "git_blob": "343524c5db1247a6c27f8322b983a5058ddaa17a",
+      "mode": "100644",
+      "sha256": "518ee7f1a30ce65eb3660e6ef197ac299682514ade061ed2b029425c39712f49"
+    },
+    {
+      "path": "groot/vla/common/utils/data_structure/tree_utils.py",
+      "git_blob": "9cce53b6c14b1e7cf4ccd93790e964f47b2c84d8",
+      "mode": "100644",
+      "sha256": "c68c0ef2691e754db186ac043c306498b365ee4db39db30c829c76cdfcb727f7"
+    },
+    {
+      "path": "groot/vla/common/utils/io/__init__.py",
+      "git_blob": "8dc853ff2849d027d12c92d09d2ebaa553cfd97e",
+      "mode": "100644",
+      "sha256": "21948aa72c84d8fb492ad873d632d7a315650b8b43e4cebd153be3fc85851862"
+    },
+    {
+      "path": "groot/vla/common/utils/io/config_utils.py",
+      "git_blob": "d8d541efa9c55107c37c0cd3bcb32566b0ce2f8b",
+      "mode": "100644",
+      "sha256": "2010b50eea2e646f8fb858d28b8aea963a909418831c4742c30e8f75ed4b1324"
+    },
+    {
+      "path": "groot/vla/common/utils/io/file_utils.py",
+      "git_blob": "3e53246b39997b519b1f131a440c64d500c00db2",
+      "mode": "100644",
+      "sha256": "2f99afa695d1ea257c97cc6cc880f69b346bfeb28c27648ae85042ab263be2e3"
+    },
+    {
+      "path": "groot/vla/common/utils/io/hdf5_utils.py",
+      "git_blob": "03775968a73e9c3a39d1371472e10eb8f323323a",
+      "mode": "100644",
+      "sha256": "193e3c013f74ab7986bdf830952d9b246c392213c08612b2f339f89b274f0916"
+    },
+    {
+      "path": "groot/vla/common/utils/io/json_utils.py",
+      "git_blob": "34eb226264b6ae98f017ea46bbdd0bbdb549604f",
+      "mode": "100644",
+      "sha256": "8f8b13b68693b9a533d815fee23e78edefc8b55d58ffff353796579f6fdf7ff9"
+    },
+    {
+      "path": "groot/vla/common/utils/io/print_utils.py",
+      "git_blob": "161746c9c83179dbb4a61902478e767854efaa36",
+      "mode": "100644",
+      "sha256": "ff9e3b6a8ae0350087d074ac1e38861604469cce166e9a503a9fbb6862bc48c3"
+    },
+    {
+      "path": "groot/vla/common/utils/io/termcolor.py",
+      "git_blob": "bf5a13d3aebb39b02cee7d6f709696cafca92197",
+      "mode": "100644",
+      "sha256": "c6aa2f584a3da76c9c099580edd05a4299272752a0a59eb5d96a0d87c6359e20"
+    },
+    {
+      "path": "groot/vla/common/utils/misc/__init__.py",
+      "git_blob": "a3ab939903e7c546f80c32175d84560e747557a1",
+      "mode": "100644",
+      "sha256": "1a4f48d78e1211ae81a061361fc2dc21445ef8f617ba3868df967be86b1d23b9"
+    },
+    {
+      "path": "groot/vla/common/utils/misc/array_tensor_utils.py",
+      "git_blob": "6585ca8a2693c38390b6236eb7c2a337bf3f2926",
+      "mode": "100644",
+      "sha256": "30f19ac056b05e35506a83bdf94f8ba41f44e56228298c99d6ff8ca1e684edcb"
+    },
+    {
+      "path": "groot/vla/common/utils/misc/functional_utils.py",
+      "git_blob": "9a5a509feac792751ccfd7956736f932bea33679",
+      "mode": "100644",
+      "sha256": "9d79c17e0a422ac86fc5769811bb61128d9ee3899fb0d99d6eda9939c6598948"
+    },
+    {
+      "path": "groot/vla/common/utils/misc/image_utils.py",
+      "git_blob": "46ae18cf8b9b89e577da99df8dd0919d07318c71",
+      "mode": "100644",
+      "sha256": "31e10392dfd2fa518ae75c7e76a30eb1e2caf072ea7a16b354def46fa82d78b0"
+    },
+    {
+      "path": "groot/vla/common/utils/misc/misc_utils.py",
+      "git_blob": "ed486fec52a63fe1c97039c813ceaf03f5db5315",
+      "mode": "100644",
+      "sha256": "11f4727106c200784f7ded2d2e10ee03e2159cc12de184182e229a6b253aa96e"
+    },
+    {
+      "path": "groot/vla/common/utils/misc/torch_utils.py",
+      "git_blob": "e735532c4289262d632adfee93ca68581f248533",
+      "mode": "100644",
+      "sha256": "8e14fc9f5b506827fca89d4b4bc7e1b7887d00beb3204dd40611a63a49e91936"
+    },
+    {
+      "path": "groot/vla/common/utils/misc/video_utils.py",
+      "git_blob": "481f169cef3adf518df273e1175603c31cfcfdd0",
+      "mode": "100644",
+      "sha256": "719dbfbc8d7ab6f965bf431393d54fae3f8014905db2f84258e7149138cd101d"
+    },
+    {
+      "path": "groot/vla/configs/conf.yaml",
+      "git_blob": "48da05bc28ed7560307933d94396c4d6eeac715c",
+      "mode": "100644",
+      "sha256": "8815c1f791bc5bebaa74c4019b2a2657d6b1237f69a85926131ea4d98ee83860"
+    },
+    {
+      "path": "groot/vla/configs/data/dreamzero/agibot_relative.yaml",
+      "git_blob": "1972af4e9ab846f94bc9304a238b731e4c2deb14",
+      "mode": "100644",
+      "sha256": "5bac65a5aa1dbd2cb9539d68e62d5a913aba1e75c3be01ada20bd715d71d0dd4"
+    },
+    {
+      "path": "groot/vla/configs/data/dreamzero/base_48_wan_fine_aug_relative.yaml",
+      "git_blob": "99545eede816621f9869206d0e37f721a3727951",
+      "mode": "100644",
+      "sha256": "d85df48099d6f9550d343076e5a590662b20c7f7e8855ada07d3f3da9a6f0eeb"
+    },
+    {
+      "path": "groot/vla/configs/data/dreamzero/droid_relative.yaml",
+      "git_blob": "197ff702b465dddd0ef54cd572e59921bae04302",
+      "mode": "100644",
+      "sha256": "fbc70bb768a4d595857cd5110a12f082ea6d45d3a0ed23706d747ce6e5926a3e"
+    },
+    {
+      "path": "groot/vla/configs/data/dreamzero/droid_relative_wan22.yaml",
+      "git_blob": "42537e2b7b66be9b55c4b936eaa931b5fb3f17d1",
+      "mode": "100644",
+      "sha256": "53720816aed5b2ea7042318661db52bde31af075e88a2e59f80c9559ffa8319d"
+    },
+    {
+      "path": "groot/vla/configs/data/dreamzero/yam_relative.yaml",
+      "git_blob": "2670479f2c2369f1440f5c8333adf2310391bbd2",
+      "mode": "100644",
+      "sha256": "622e313fb24740d03d82923a977ad96a9defcc00fca59134b7d5b5ee64d77ed2"
+    },
+    {
+      "path": "groot/vla/configs/deepspeed/zero2.json",
+      "git_blob": "b1a5a0b41b082ff36c8a0cec197bb61c7d78c2b1",
+      "mode": "100644",
+      "sha256": "9e35a48c4187c87871912ffa879ff5d9e611ca6005937da59d6da85528284ca5"
+    },
+    {
+      "path": "groot/vla/configs/deepspeed/zero2_offload.json",
+      "git_blob": "29c7f2f22577fa6ef48a9958285a4bbf5dc4026d",
+      "mode": "100644",
+      "sha256": "2b01785801c68e6bc5d326174b62e18ec5f15a5dbf1dc3adf8f5a1f2aa4fe894"
+    },
+    {
+      "path": "groot/vla/configs/deepspeed/zero3.json",
+      "git_blob": "cfd068a9f91485787b0895e029bc3f0b1577adf1",
+      "mode": "100644",
+      "sha256": "ed38ea323cf2ecbd35bf1e307be26fab7394706641bed2cb0d442d92683060a1"
+    },
+    {
+      "path": "groot/vla/configs/model/dreamzero/action_head/wan_flow_matching_action_tf.yaml",
+      "git_blob": "8cccdc6319ac822f6f93ed9af9746034e74215ea",
+      "mode": "100644",
+      "sha256": "0b0e2160cdf4204dafc05262e27a062dd86fd24a634f4dfd2880c761f8f76cfb"
+    },
+    {
+      "path": "groot/vla/configs/model/dreamzero/action_head/wan_flow_matching_action_tf_wan22.yaml",
+      "git_blob": "1fa6c8e8de9ee0e88f9ea5fdf066f69f46f04cda",
+      "mode": "100644",
+      "sha256": "ef20e5f039578dba80d36e1154423f907a6a202370f210ee85147210f01f96ab"
+    },
+    {
+      "path": "groot/vla/configs/model/dreamzero/backbone/identity.yaml",
+      "git_blob": "2e4cf9ced4117a2dc622308691e39551ef0ff2c6",
+      "mode": "100644",
+      "sha256": "5d8056a49f652fca287bb933b0dcbf41b4f4c8464535843abe02d8202b0261aa"
+    },
+    {
+      "path": "groot/vla/configs/model/dreamzero/transform/base.yaml",
+      "git_blob": "3873b9ab15f0f1c0c750fe8c6f8b73125a0bfe4d",
+      "mode": "100644",
+      "sha256": "d53e31d87fa50ad53a300dde4666a0256263d2aec63bf1ca547288bb93b234f6"
+    },
+    {
+      "path": "groot/vla/configs/model/dreamzero/transform/dreamzero_cotrain.yaml",
+      "git_blob": "b39a62f300410c921c54056f54754b1e3ec20a8c",
+      "mode": "100644",
+      "sha256": "6890ef26b9a5a768cdbf3f1ae67b65726d543d5728ac3d557c91b918949a0960"
+    },
+    {
+      "path": "groot/vla/configs/model/dreamzero/vla.yaml",
+      "git_blob": "4ab9fac6999409208720e71754ba1a9a0207b39f",
+      "mode": "100644",
+      "sha256": "e6e8d8429a2c75c3787261c61a37bb5048cebbdde2ed789112ebd43e01b78087"
+    },
+    {
+      "path": "groot/vla/data/__init__.py",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "groot/vla/data/conversion/__init__.py",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "groot/vla/data/conversion/gr1/__init__.py",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "groot/vla/data/conversion/gr1/constants.py",
+      "git_blob": "55dbd88fe0f14222ef91b2d23ebce40838d477b1",
+      "mode": "100644",
+      "sha256": "d6f3bea698a3a5fbdd6860bf8f0513233515154dcd33518c2422d34b47118839"
+    },
+    {
+      "path": "groot/vla/data/conversion/gr1/get_initial_actions.py",
+      "git_blob": "885aed3e4c4ddbdf94ba56e4da2e17bd75102c9d",
+      "mode": "100644",
+      "sha256": "8cc40c6d873e043d9d2672c85e4bd51f1e0641bf0fb1b5dd31b6645b400e6449"
+    },
+    {
+      "path": "groot/vla/data/dataset/__init__.py",
+      "git_blob": "db17fc385679fa2b4e40e5c5c7631e43d3ae3638",
+      "mode": "100644",
+      "sha256": "e32a8f09f94b981373567502c50937a402cc7feb91b369251fefa2c895e8898a"
+    },
+    {
+      "path": "groot/vla/data/dataset/lerobot.py",
+      "git_blob": "f8efc6ed0f424f32cd4273be064680c33059106c",
+      "mode": "100644",
+      "sha256": "9ec2bae810e385936ca30c885be41e27242bf4ed7a8e4e276f2fbc548d24da46"
+    },
+    {
+      "path": "groot/vla/data/dataset/lerobot_sharded.py",
+      "git_blob": "409fa3786449666e84ad54e12412c041c26e4066",
+      "mode": "100755",
+      "sha256": "e075de07675c77818e8b75ba62b74357284dde2e4cfa7235b225bb59584fbf80"
+    },
+    {
+      "path": "groot/vla/data/dataset/macro.py",
+      "git_blob": "94077443e7660765e4a56a60ba88280ebcd7e830",
+      "mode": "100644",
+      "sha256": "8c06cdbfa33114e8b949a87f189a2e113888c8a4a47916c62796b9bb63987498"
+    },
+    {
+      "path": "groot/vla/data/dataset/metadata.py",
+      "git_blob": "bc7cefef8796b7dcfea8580f0d20259a0db932e0",
+      "mode": "100644",
+      "sha256": "cd95d6009287f99110a81ceb04c73ed0e86253097e16a8ee9c56b924ed47abd8"
+    },
+    {
+      "path": "groot/vla/data/dataset/registry.py",
+      "git_blob": "47bf672174db5bae46088bdef27fa408628ecdcc",
+      "mode": "100644",
+      "sha256": "6cc1cbd518df309a6c96b73ce9eecc2d6d76f9ca68346212a944dcdf166e5396"
+    },
+    {
+      "path": "groot/vla/data/schema/__init__.py",
+      "git_blob": "786e3cb513a829954ce7709786f37a5393e722a2",
+      "mode": "100644",
+      "sha256": "4faddf9f722a6b3f8f4ea8b84aaa5c19340c695afd311503ae438c98e5953a11"
+    },
+    {
+      "path": "groot/vla/data/schema/embodiment_tags.py",
+      "git_blob": "e7eaec04ec1e2a03dfc29e4863f3f15eae9e05e7",
+      "mode": "100755",
+      "sha256": "59276118cebb250e3866a7715ad2d8520960b6cb7e5fdc77de61c290dcaf4f9e"
+    },
+    {
+      "path": "groot/vla/data/schema/lerobot.py",
+      "git_blob": "4139f5697e79a00edf5e845bdd9720677fbed553",
+      "mode": "100644",
+      "sha256": "7e44b2647e10b16d19605747c0e3edec92b720e9a05c54952b784c5ef72036d7"
+    },
+    {
+      "path": "groot/vla/data/transform/__init__.py",
+      "git_blob": "bfa7eeeac139423679a12220cbde4db6161f0b38",
+      "mode": "100644",
+      "sha256": "074a67e3834d584c03e222aa3b2ae0820cb6007df79e84ddfd1af162408578a8"
+    },
+    {
+      "path": "groot/vla/data/transform/base.py",
+      "git_blob": "228860049653dd3d1b0cb57150d8e561b7d4c935",
+      "mode": "100644",
+      "sha256": "37b32fde425bd9fc115c76a794596bb3f9e50a35aae0836cc145f354017c4d38"
+    },
+    {
+      "path": "groot/vla/data/transform/concat.py",
+      "git_blob": "e5474baffd56679fa2098e46abe4300fcff341a7",
+      "mode": "100644",
+      "sha256": "5d3b09eaec4667d34083c1d3c19459fd2a90523b016cad34630f7b261759165a"
+    },
+    {
+      "path": "groot/vla/data/transform/language.py",
+      "git_blob": "6fbf4d5c6679f6ffacadc0220c3a94418fd23591",
+      "mode": "100644",
+      "sha256": "f48a0f2b8a382dbbe4217ec9af422e80121991545b7d794817a5ada75a1f359f"
+    },
+    {
+      "path": "groot/vla/data/transform/state_action.py",
+      "git_blob": "2be1cc810f1dca0e2c9625d7775bc7b62b0c4816",
+      "mode": "100644",
+      "sha256": "70c659c78ef7f93bfab9504a2e29f147f2cbe667ab81f956398d5931a1362cbe"
+    },
+    {
+      "path": "groot/vla/data/transform/video.py",
+      "git_blob": "e5a76df21d1d9b14d25f68de4a63da06cc98869a",
+      "mode": "100644",
+      "sha256": "d75b7c79b54d368db48d2053976a1c2dd760a5bd043bb4dcc80dfba9984f6274"
+    },
+    {
+      "path": "groot/vla/experiment/__init__.py",
+      "git_blob": "2cf08b47119645e476dc0b3cfcb7ed54fa4aaec1",
+      "mode": "100644",
+      "sha256": "fbd01cc0e345755356e13e2ccbfd6eafd626392dc02e6f4c45b117d6ea14a20d"
+    },
+    {
+      "path": "groot/vla/experiment/base.py",
+      "git_blob": "d306a9a41019b44bf385295bf7cab4ad6812cbc2",
+      "mode": "100644",
+      "sha256": "c5992b65be1253d6f3d9b2c7932b2b77444edd739e275e861c29fbb2c5aee274"
+    },
+    {
+      "path": "groot/vla/experiment/experiment.py",
+      "git_blob": "e02d36c52999ffadd68ec0c00333f794b7db25d2",
+      "mode": "100644",
+      "sha256": "1d0c903f749b4d5d69d1509c10aa80e57ae0f580feefc50d1af3c4510ef97580"
+    },
+    {
+      "path": "groot/vla/experiment/utils.py",
+      "git_blob": "d54993b2096aa6cc38ada6151da19b83d26ae2e5",
+      "mode": "100644",
+      "sha256": "537a86bc8538c2f67506837ed8d5287672387fb0fd63eab1539a6068fde852bf"
+    },
+    {
+      "path": "groot/vla/model/__init__.py",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "groot/vla/model/dreamzero/__init__.py",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "groot/vla/model/dreamzero/action_head/__init__.py",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "groot/vla/model/dreamzero/action_head/wan_flow_matching_action_tf.py",
+      "git_blob": "b7cd806f28060354e0564378866d021863bfbd32",
+      "mode": "100644",
+      "sha256": "7193cd73423472aa252bee73bd80e0d673c89d773ec852e90f50154729b50845"
+    },
+    {
+      "path": "groot/vla/model/dreamzero/backbone/__init__.py",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "groot/vla/model/dreamzero/backbone/base_backbone.py",
+      "git_blob": "b768bcdef5fa0e6b08ee4634ec2e144e549edbb7",
+      "mode": "100644",
+      "sha256": "c3167be5b1fac1da0025b2bc7f9d9a1335bb8f39b88f27422de3885074ff2b70"
+    },
+    {
+      "path": "groot/vla/model/dreamzero/backbone/identity.py",
+      "git_blob": "d63ad24139b9b796f0244025618f472e2fe0235a",
+      "mode": "100644",
+      "sha256": "ce4427d7ae0a1ab2e845f61e538d00a967e20a7fa762ff0f147235b16204c0ca"
+    },
+    {
+      "path": "groot/vla/model/dreamzero/base_vla.py",
+      "git_blob": "274b8640f44b2ac06b7fe8f60f43b4ce8dd51a28",
+      "mode": "100644",
+      "sha256": "6e926096f20b4c1bbba98c3e270bde1d5260609e4155de27c91c911f2f8f8e20"
+    },
+    {
+      "path": "groot/vla/model/dreamzero/modules/__init__.py",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "groot/vla/model/dreamzero/modules/attention.py",
+      "git_blob": "0ebc62a64a02b84cbecbc682e5612b0e290a87d4",
+      "mode": "100644",
+      "sha256": "6228c9d5fbcac71c82004c0fd954de629955130b6a9cc7e59de8de0942393e43"
+    },
+    {
+      "path": "groot/vla/model/dreamzero/modules/cudnn_attention.py",
+      "git_blob": "c996baa33c4f8212652234a8f6d9ba7645d3c234",
+      "mode": "100644",
+      "sha256": "6a896b1d936f0148c6017f9de528b5e2b1a6a18691b2d854c74b1217ba0c5fb4"
+    },
+    {
+      "path": "groot/vla/model/dreamzero/modules/flow_match_scheduler.py",
+      "git_blob": "03b53b3b26237ef82492d174c78b971a22280a0f",
+      "mode": "100644",
+      "sha256": "6c3f720e7520bf6e138a0e78732c7b7283b109c589dd2e231c6a67ff9f663477"
+    },
+    {
+      "path": "groot/vla/model/dreamzero/modules/flow_unipc_multistep_scheduler.py",
+      "git_blob": "df7ea56e278813a242cbb1cec873edc79649f8a5",
+      "mode": "100644",
+      "sha256": "8748ff51dc050833ae75e621088787a9d1eaf28d8c964dd7639528c29395765e"
+    },
+    {
+      "path": "groot/vla/model/dreamzero/modules/utils.py",
+      "git_blob": "0d58e4e11dc844822d0588dac7f432e7e31b8daf",
+      "mode": "100644",
+      "sha256": "30d8d7cd347347955cb607b6f9aa9fd8a649494ab0e9d6a7ca0b711db7b52e6a"
+    },
+    {
+      "path": "groot/vla/model/dreamzero/modules/vram_management.py",
+      "git_blob": "381d564caed84403b8b1062b53fed41b110668f2",
+      "mode": "100644",
+      "sha256": "5c669999623f2a2586a6e2660827d8cf4d62cdd985c248681fdc08666fcee3f0"
+    },
+    {
+      "path": "groot/vla/model/dreamzero/modules/wan2_1_attention.py",
+      "git_blob": "5ffb826bf16fa222a9fdf1a35ae27aeae0dbbf03",
+      "mode": "100644",
+      "sha256": "ef2016f76af4edf3352f42c6681bf289ce1b2d61cc274997e8b77a52e4d6566a"
+    },
+    {
+      "path": "groot/vla/model/dreamzero/modules/wan2_1_submodule.py",
+      "git_blob": "b7bbe1187dddb4adf9ec2e9b2eb715b58c20e1e0",
+      "mode": "100644",
+      "sha256": "8a038f5647d420a818ac92740ade5cdc5984925e5a32b6d3c9e767c93dd2ea51"
+    },
+    {
+      "path": "groot/vla/model/dreamzero/modules/wan_video_camera_controller.py",
+      "git_blob": "8cbe658699e52c8cf3854d94ed4d0c356bb96989",
+      "mode": "100644",
+      "sha256": "90768ef31fc5ed0fead9f25f931bc3125039abe9f02adb8182cfea39d41c7883"
+    },
+    {
+      "path": "groot/vla/model/dreamzero/modules/wan_video_dit.py",
+      "git_blob": "305d3203cba05577ee0b2881de716999c8dc9e88",
+      "mode": "100644",
+      "sha256": "5518a65aed7f9d5b9496de4e991f0c09ee993985232ba9a2776be19827bf747b"
+    },
+    {
+      "path": "groot/vla/model/dreamzero/modules/wan_video_dit_action_casual_chunk.py",
+      "git_blob": "c5e2528401c0d7a1c69daafb29eb4ad50c06f30b",
+      "mode": "100644",
+      "sha256": "efc5120f73cbce2e00b67d78e8bf71a561e943a909791f039b435abc27ccd605"
+    },
+    {
+      "path": "groot/vla/model/dreamzero/modules/wan_video_image_encoder.py",
+      "git_blob": "ec0523226f3019b78d2d9d4dc6b17476e010384e",
+      "mode": "100644",
+      "sha256": "e405a886a8e1d48c1e1981770a3e1b4d102c173734168af722d91b400acfec70"
+    },
+    {
+      "path": "groot/vla/model/dreamzero/modules/wan_video_text_encoder.py",
+      "git_blob": "abeb018333f6f61f1af12aa39ab064105274f8d1",
+      "mode": "100644",
+      "sha256": "8dfddba064cbe5ce12b2481c84c0ac0e1ecf2dd5484be8f026ce3d34b357a5b9"
+    },
+    {
+      "path": "groot/vla/model/dreamzero/modules/wan_video_vae.py",
+      "git_blob": "4e2ff44f0db1e043b3ba9914962040f5ca0d36fa",
+      "mode": "100644",
+      "sha256": "1f65f8fd915c1e6703da9d320e764df107dbb988b12623a7e087554281c84edc"
+    },
+    {
+      "path": "groot/vla/model/dreamzero/transform/__init__.py",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "groot/vla/model/dreamzero/transform/common.py",
+      "git_blob": "913add82986c026fb17f0c0ca6224102dd2a8cc1",
+      "mode": "100644",
+      "sha256": "4b058ec1179d67f99a5880ea65568be20ddb32ddb462554bf851e7168734622c"
+    },
+    {
+      "path": "groot/vla/model/dreamzero/transform/dreamzero_cotrain.py",
+      "git_blob": "d5c23e0335e2a85f1d3a735c98cf9c9e16fb63e1",
+      "mode": "100644",
+      "sha256": "8b4544b0f1c52a1ba78f764cd1882132b212e4be0a78a86e67ca39ccb3902151"
+    },
+    {
+      "path": "groot/vla/model/n1_5/__init__.py",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "groot/vla/model/n1_5/action_head/__init__.py",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "groot/vla/model/n1_5/action_head/base_action_head.py",
+      "git_blob": "e8398622d4da362796b0fdb8a807a1592b55270e",
+      "mode": "100644",
+      "sha256": "dc6db3651042dced44727161699e741a4b6ab3a8d3c10356e10d546c5c4b2119"
+    },
+    {
+      "path": "groot/vla/model/n1_5/modules/__init__.py",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "groot/vla/model/n1_5/modules/action_encoder.py",
+      "git_blob": "55a39303c2c69913be01c7a86fc5cea7af6921bb",
+      "mode": "100644",
+      "sha256": "9f42b500c1899a2a71aed08413495e105738a5fcd887e5848cd8f1aa0151eb4b"
+    },
+    {
+      "path": "groot/vla/model/n1_5/sim_policy.py",
+      "git_blob": "f1d01b510928deaeb69ad454c55388df97e6ef61",
+      "mode": "100755",
+      "sha256": "c7b692b84a03a70adc7e0d21fb7632a9866285645e8d43c916100e6f5fb7497a"
+    },
+    {
+      "path": "groot/vla/utils/__init__.py",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "groot/vla/utils/action_args_override_utils.py",
+      "git_blob": "67ecdbb307bf02ebef0282a1d5065f4d3bd8b24f",
+      "mode": "100644",
+      "sha256": "8614ddd846f7f88725b11678f8260cfd25f68c71527504af47fe9d9f2183c735"
+    },
+    {
+      "path": "groot/vla/utils/timer.py",
+      "git_blob": "d4e17daa2caee54c85fd7869195136cd2b098a87",
+      "mode": "100644",
+      "sha256": "6a4a4614fa72144e84b85f1b29ddc40ffc553d4a5211644f76d11ef9edfc44e9"
+    },
+    {
+      "path": "pyproject.toml",
+      "git_blob": "cec38dd81094702b690711ddb4ba69e8c3034d96",
+      "mode": "100644",
+      "sha256": "ab4ce036691fe0ec0f26bd699f3b6ad32706c554b8a3bc6d42cacaef9535b848"
+    },
+    {
+      "path": "scripts/compare_loss.py",
+      "git_blob": "7b79ee1f8a9b900d34bd80ec3e8da428cc8b91d4",
+      "mode": "100644",
+      "sha256": "f691830b15741e94193da5e5fb68158ad6adf715446b425f23de696cc8c08f76"
+    },
+    {
+      "path": "scripts/data/convert_agibot.py",
+      "git_blob": "8d888cc17e402ff7045060f200438bc3536fd7a0",
+      "mode": "100644",
+      "sha256": "7a6784630fd4a4f74bc7d3f962ccddd2dcc1d051c6f905c290096ddcfad812c2"
+    },
+    {
+      "path": "scripts/data/convert_droid.py",
+      "git_blob": "2a548e196f6912b341c3906c02b9dcd89584f5af",
+      "mode": "100644",
+      "sha256": "4c3191679f1c031dcfda1b50645232cfb36baa9b1f701f62dfc436948281ac40"
+    },
+    {
+      "path": "scripts/data/convert_lerobot_to_gear.py",
+      "git_blob": "ff7fbfee13ddd9edc77e395fa8ca85bab650012a",
+      "mode": "100644",
+      "sha256": "8028d88314c75ce9a82234550ad7d448660e2bd7566a85ce723374643286786f"
+    },
+    {
+      "path": "scripts/data/download_droid_hf.py",
+      "git_blob": "0862e39d15acd3414afe183ef566951b9bb568f9",
+      "mode": "100644",
+      "sha256": "70b896eeb83cdf45ae3707fb0f3daf85f3360a6bba5649e9e2d3bf22d6aea7b0"
+    },
+    {
+      "path": "scripts/inference/build_trt_engine.py",
+      "git_blob": "227906c7f50f669323c970de1b0427d5b2809d83",
+      "mode": "100644",
+      "sha256": "2b8e6400212e928369bc890a0857031a4f1c4c73e0e9598e86ace07b53766350"
+    },
+    {
+      "path": "scripts/inference/build_trt_engine.sh",
+      "git_blob": "5c943cc6bf670a18930f853d1d1a31dbf20ada4e",
+      "mode": "100644",
+      "sha256": "49e9358ea9876397b12235460c0b384ee233e0298868b97d3b19d844ebcff820"
+    },
+    {
+      "path": "scripts/open_loop_yam.py",
+      "git_blob": "b5a5e989ea56ab77e77cb050a7189c78bb766769",
+      "mode": "100644",
+      "sha256": "97e6367fb73a3cc3554c6c601fede1fa6c7f6392834df13c4b7fc87595d06620"
+    },
+    {
+      "path": "scripts/train/agibot_training.sh",
+      "git_blob": "e8702b45e2c739ff3cce16079f1f59a547109453",
+      "mode": "100644",
+      "sha256": "013be2ff19d337b905c15b330195eacd286f7e9cb48856370db7d39e9d93b466"
+    },
+    {
+      "path": "scripts/train/droid_training_full_finetune.sh",
+      "git_blob": "2e7c2e65e08bc9ae9c7da71bd39a63184a79cdb8",
+      "mode": "100755",
+      "sha256": "16528fe76ac52a3ba4892477a68101c5bf6e797e76fb4504aa5d7a5b3a6396e5"
+    },
+    {
+      "path": "scripts/train/droid_training_full_finetune_wan21.sh",
+      "git_blob": "a43a8d8d4a323b738f6b33b5c47ed2c0563a3984",
+      "mode": "100755",
+      "sha256": "b6235684024b8ffd8c714c9edaa6077d56a2ed467137b06a311a51f22133f2c9"
+    },
+    {
+      "path": "scripts/train/droid_training_full_finetune_wan22.sh",
+      "git_blob": "fa10a25df3fa09e7c8c3222d17ad6f4e420a8ca1",
+      "mode": "100755",
+      "sha256": "72dbc6f05794216a972eca775db90bb11948808327206ebd47d50a69163c2d86"
+    },
+    {
+      "path": "scripts/train/droid_training_lora.sh",
+      "git_blob": "978693bc352d899aa099f4c60c422fd36f3c1d39",
+      "mode": "100755",
+      "sha256": "4f68b38374bdf0f01574a1b2d702c875b23908698eda1320af323fea86c433f3"
+    },
+    {
+      "path": "scripts/train/droid_training_wan22.sh",
+      "git_blob": "da56a65b95ac96f66e0a874445dd9c61a6c67bde",
+      "mode": "100755",
+      "sha256": "ea275a797f89b011d48883fbe930db3b2ed244ab102bc9a7dd9df03aa1bdcb40"
+    },
+    {
+      "path": "scripts/train/yam_training.sh",
+      "git_blob": "49f83079a585b4b1bf71ac8dea3660a9840bae85",
+      "mode": "100644",
+      "sha256": "a5c1a3ab0aa83230731b4047ee5cc91278c1d47a51c8bf476f9566e73cee963b"
+    },
+    {
+      "path": "socket_test_optimized_AR.py",
+      "git_blob": "5b93e05e9a8f7f873b81541ed8eddf4cb47f83ad",
+      "mode": "100644",
+      "sha256": "7ef17f66064bac8defafc1a84551089b124546729a98be8c0515b33d2e159d48"
+    },
+    {
+      "path": "test_client_AR.py",
+      "git_blob": "e52370c21483ff5c1ce92db112206d9a83bff7bd",
+      "mode": "100644",
+      "sha256": "c48b95282b92664174a7bca8c1b99d6ac17a1aa968a8f8416c0d26107e6e1afe"
+    }
+  ]
+}
