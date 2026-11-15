@@ -7,3 +7,12 @@
 以上是单次、固定场景的控制链路检查，不是统计成功率，也不代表 DreamZero、真机、扫码或流水线验证通过。
 
 SDK 参考复核：PDF §1.2 的七个右臂关节名和限位已写入 `configs/mujoco.toml`；PDF §5.1.2 的位置控制消息按关节名、弧度目标和 `MODE_POSITION=2` 被记录在 `docs/sdk-reference.md`；PDF §5.10 的夹爪 0–0.05m 位置范围被作为仿真输入上限。发布频率、增益和摩擦仍是仿真工程参数，未被当作厂商实测参数。
+
+2026-11-15 新运行器服务器检查（临时目录，复用已有 MuJoCo 4.0.1 环境）：
+
+- 模型 `nq=25, nv=24, nu=18`，配置50Hz控制/0.002s物理步长，即每控制周期10步。
+- `run_sim.py --mode hold --seconds 2` 返回成功。
+- `run_sim.py --mode pick-place --seconds 8` 返回成功，物体目标XY距离0.008124m；总仿真时间11.74s（含8s初始稳定）。
+- 加入 `--render-dir outputs/smoke` 后再次成功，前视/腕部PNG及metrics.json生成；未在本地逐图复核画面。
+- 5项 unittest 全通过，旧抓放脚本仍返回成功。
+- 测试仅针对右臂、单一静止方块和oracle物体位置。服务器未新建干净venv验证依赖安装；未验证真实时间性能、真机、扫码、流水线或DreamZero闭环。

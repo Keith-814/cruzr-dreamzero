@@ -45,7 +45,7 @@ MUJOCO_GL=egl python scripts/smoke_cruzr_pick_place.py --render-dir outputs/smok
 - `tests/`：已有控制器回归测试。
 - `models/`：模型导入说明，本地模型不进入 Git。
 - `docs/`：来源、接口约定和后续路线。
-- `configs/`：供后续适配使用的示例；当前脚本不读取该配置。
+- `configs/mujoco.toml`：新运行器实际读取的物理步长、控制频率、关节限制、增益、工件和相机配置。`cruzr_sim.example.json` 仅为旧接口参考。
 
 开发时保持 editable 安装；默认资产路径位于仓库内，当前不支持独立 wheel 携带模型发布。
 
@@ -53,7 +53,7 @@ MUJOCO_GL=egl python scripts/smoke_cruzr_pick_place.py --render-dir outputs/smok
 
 1. 验证现有抓放与相机，记录初始基线。
 2. 增加静止工件、扫码目标位、料框与任务评价。
-3. 增加同步关节/夹爪数据与按固定频率执行的动作块接口。
+3. 在现有固定周期关节执行接口上增加动作块、同步图像记录和数据导出。
 4. 在独立环境运行官方 DreamZero 推理，再适配本体、数据和微调。
 5. 仿真闭环通过后，进行真机 shadow 与单臂低速验证。
 
