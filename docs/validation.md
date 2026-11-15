@@ -13,6 +13,6 @@ SDK 参考复核：PDF §1.2 的七个右臂关节名和限位已写入 `configs
 - 模型 `nq=25, nv=24, nu=18`，配置50Hz控制/0.002s物理步长，即每控制周期10步。
 - `run_sim.py --mode hold --seconds 2` 返回成功。
 - `run_sim.py --mode pick-place --seconds 8` 返回成功，物体目标XY距离0.008124m；总仿真时间11.74s（含8s初始稳定）。
-- 加入 `--render-dir outputs/smoke` 后再次成功，前视/腕部PNG及metrics.json生成；未在本地逐图复核画面。
+- 加入 `--render-dir outputs/smoke` 后再次成功，前视/腕部PNG及metrics.json生成；已逐图复核：前视可见机器人、桌面、方块和目标盘；腕部图像可见目标但有明显夹爪遮挡，机位仍需按真机标定。
 - 5项 unittest 全通过，旧抓放脚本仍返回成功。
 - 测试仅针对右臂、单一静止方块和oracle物体位置。服务器未新建干净venv验证依赖安装；未验证真实时间性能、真机、扫码、流水线或DreamZero闭环。
