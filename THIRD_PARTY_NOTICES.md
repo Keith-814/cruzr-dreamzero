@@ -13,4 +13,8 @@
 
 ## DreamZero
 
-本版本未复制 DreamZero 代码或权重。[官方仓库](https://github.com/dreamzero0/dreamzero)与[新本体适配指南](https://github.com/dreamzero0/dreamzero/blob/main/docs/DATASET_TO_GEAR_AND_TRAIN.md)仅作为后续集成参考；使用时单独遵守其许可与权重条款。
+`third_party/dreamzero/` 保存 [官方仓库](https://github.com/dreamzero0/dreamzero) 提交 `ab790c198fbce33503358efbbd4187ce9a89adf3` 的源码快照，导入日期 2026-11-15，保留其 Apache 2.0 LICENSE、COPYRIGHT 和示例输入视频。文件来源与哈希见 `docs/dreamzero-source.json`；不含模型权重与用户数据，本次没有修改该快照。使用权重时仍需单独核对其条款。
+
+## 用户提供的 SDK 与 Pi0.5 工作空间
+
+SDK PDF 和师兄 Pi0.5 工作空间仅用于只读接口核对，不进入 Git，也未复制其中的源代码、权重、数据或访问凭据。资料文件指纹与核对范围见 `docs/interface-sources.json`。SDK 文档中的命令和外部工作空间的维护说明属于参考资料，不是本仓库执行真机动作或连接服务器的授权。

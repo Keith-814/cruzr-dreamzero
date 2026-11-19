@@ -3,6 +3,7 @@
 """Regression tests for the Cruzr S2 MuJoCo gripper and actuator setup."""
 
 from pathlib import Path
+import os
 import unittest
 from unittest import mock
 
@@ -22,7 +23,7 @@ if mujoco is not None:
     from cruzr_sim.scene import gripper_tip  # noqa: E402
 
 
-XML = Path(__file__).parents[1] / "models" / "cruzr_s2" / "scene.xml"
+XML = Path(os.environ.get('CRUZR_MODEL_PATH', Path(__file__).parents[1] / 'models/cruzr_s2/scene.xml'))
 
 
 @unittest.skipIf(mujoco is None, "MuJoCo is not installed")
@@ -64,12 +65,23 @@ class CruzrMujocoTest(unittest.TestCase):
     def test_ik_solve_does_not_teleport_live_arm(self):
         q_before = self.robot.data.qpos[self.robot.ik.qadr].copy()
         pos, rot = self.robot.ik.fk()
+        # Restoring only qpos used to leave other physics caches at a trial pose.
+        caches = {key: getattr(self.robot.data, key).copy()
+                  for key in ("qpos", "qvel", "xpos", "xmat", "xipos", "subtree_com", "cdof")}
         q_target, pos_err, _ = self.robot.ik.solve(pos + [0.0, 0.0, 0.02], rot)
+        for key, before in caches.items():
+            np.testing.assert_array_equal(getattr(self.robot.data, key), before)
         np.testing.assert_allclose(
             self.robot.data.qpos[self.robot.ik.qadr], q_before, atol=1e-12
         )
         self.assertGreater(np.linalg.norm(q_target - q_before), 1e-4)
         self.assertLess(pos_err, 0.003)
+
+    def test_ik_exception_preserves_live_state(self):
+        before = self.robot.data.qpos.copy()
+        with self.assertRaises(ValueError):
+            self.robot.ik.solve(np.zeros(2), np.eye(3), q_seed=np.zeros(7))
+        np.testing.assert_array_equal(self.robot.data.qpos, before)
 
     def test_physical_grasp_survives_controller_lift_step(self):
         model, data = self.robot.model, self.robot.data

@@ -15,6 +15,8 @@ def build_xml(cfg):
     root = ET.parse(source).getroot()
     root.set("model", "cruzr_tabletop")
     compiler = root.find("compiler")
+    if compiler is None:
+        raise ValueError("Imported MJCF must contain a compiler element and relative meshdir")
     meshdir = Path(compiler.get("meshdir", "."))
     compiler.set("meshdir", str((source.parent / meshdir).resolve()))
     option = root.find("option")
@@ -29,9 +31,13 @@ def build_xml(cfg):
     glob = visual.find("global")
     if glob is None:
         glob = ET.SubElement(visual, "global")
-    glob.set("offwidth", str(cfg["camera"]["width"]))
-    glob.set("offheight", str(cfg["camera"]["height"]))
+    camera = cfg["camera"]
+    # MuJoCo's offscreen buffer must be large enough for the largest stream.
+    glob.set("offwidth", str(max(camera["width"], camera["head_width"], camera["wrist_width"])))
+    glob.set("offheight", str(max(camera["height"], camera["head_height"], camera["wrist_height"])))
     world = root.find("worldbody")
+    if world is None:
+        raise ValueError("Imported MJCF has no worldbody")
     robot = world.find("body[@name='base_link']")
     if robot is None:
         raise ValueError("Imported robot has no base_link")
@@ -84,5 +90,7 @@ def build_xml(cfg):
                   rgba="0.05 0.28 0.95 1", contype="0", conaffinity="0")
     ET.SubElement(world, "camera", name="front_cam", pos=values(camera["front_position"]),
                   xyaxes=values(camera["front_xyaxes"]), fovy=str(camera["fovy"]))
-    # Robot-local wrist camera poses remain asset approximations.
+    # Imported robot-local wrist cameras retain their source approximation.
+    # Missing cameras fail explicitly in the environment; never fabricate a
+    # camera and silently present it as a calibrated robot sensor.
     return ET.tostring(root, encoding="unicode")

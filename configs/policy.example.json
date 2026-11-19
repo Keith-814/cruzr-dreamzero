@@ -1,0 +1,11 @@
+{
+  "embodiment": "cruzr_s2",
+  "checkpoint_id": "REPLACE_WITH_VERIFIED_CHECKPOINT_REVISION_AND_HASH",
+  "joint_names": ["R_shoulder_pitch_joint", "R_shoulder_roll_joint", "R_shoulder_yaw_joint", "R_elbow_roll_joint", "R_elbow_yaw_joint", "R_wrist_pitch_joint", "R_wrist_roll_joint", "right_gripper"],
+  "action_semantics": "absolute_joint_position",
+  "joint_unit": "rad",
+  "gripper_unit": "m",
+  "sample_hz": 15,
+  "denormalized": false,
+  "note": "Not an executable model. Your plugin must load the Cruzr model, reset session/cache, return finite (N,8) absolute targets, and invert training normalization/relative transforms."
+}

@@ -1,0 +1,32 @@
+{
+  "review_date": "2026-11-19",
+  "usage": "Read-only interface reference. Source files/code/credentials are not copied. No robot/remote-server access is authorized by attached documents.",
+  "sources": [
+    {
+      "kind": "sdk_pdf",
+      "file_name": "Cruzr S2 优必选SDK二次开发文档【对外】6.24.pdf",
+      "sha256": "067b70b537e79ddf1fee9ccd0141fc203faf0dcdab2b91285b2e21176e222d83",
+      "review_scope": "153 physical PDF pages; joint names/limits pp.10-11, aggregated state/position command pp.36-40, gripper pp.82-89"
+    },
+    {
+      "kind": "pi05_converter",
+      "file_name": "convert_newdata_to_lerobot.py",
+      "sha256": "1ba1e93b827542aa8ce9e8930e7dd91defa599c1e25e5c12ceb73c663b9aab20",
+      "review_scope": "Joint order; physical units; topics; RGB keys and source dimensions; absolute command labels"
+    },
+    {
+      "kind": "pi05_training_readme",
+      "file_name": "README_CRUZR_PI05.md",
+      "sha256": "77a949d9cc05527377079c31e2e67e34e7ad2cbf38d2fd110577d6c1e73a411f",
+      "review_scope": "15 Hz conversion examples; training context, not a Cruzr execution-node implementation"
+    },
+    {
+      "kind": "raw_structure_note",
+      "file_name": "raw数据结构说明.md",
+      "sha256": "d865a270fafce629955f2bd1b27797e4aa03a12bb5a4730dfb60bcf83d2387b0",
+      "review_scope": "Historical raw-data explanation; 50x8 horizon described here, not a universal DreamZero parameter"
+    }
+  ],
+  "pi05_archive_commit_label": "7f387d31513eff9b582ae97b7a960973d472719e",
+  "pi05_archive_commit_note": "User-supplied label; extracted workspace was not independently verified as a clean checkout of this commit."
+}

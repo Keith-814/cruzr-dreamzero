@@ -1,0 +1,39 @@
+{
+  "joint_names": ["R_shoulder_pitch_joint", "R_shoulder_roll_joint", "R_shoulder_yaw_joint", "R_elbow_roll_joint", "R_elbow_yaw_joint", "R_wrist_pitch_joint", "R_wrist_roll_joint"],
+  "lower": [-2.83, -1.86, -2.92, -2.60, -2.88, -1.60, -1.98],
+  "upper": [2.83, 0.08, 2.92, 0.02, 2.88, 1.57, 1.98],
+  "command_hz": 50,
+  "max_joint_speed": 0.1,
+  "max_gripper_speed": 0.01,
+  "max_state_age_s": 0.15,
+  "max_tracking_error_rad": 0.1,
+  "joint_tolerance_rad": 0.015,
+  "motion_timeout_s": 60,
+  "lease_s": 2,
+  "max_image_age_s": 0.3,
+  "gripper_force_n": 10,
+  "gripper_current_a": 0.1,
+  "gripper_calibration": {"geometric_max_m": 0.045, "sdk_open_m": 0.05, "sdk_closed_m": 0.0},
+  "topics": {
+    "arm_state_topic": "/mc/sdk/robot_state",
+    "arm_command_topic": "/mc/sdk/robot_command",
+    "gripper_state_topic": "/ecat/right_grip/state",
+    "gripper_command_topic": "/ecat/right_grip/cmd",
+    "head_image_topic": "",
+    "wrist_image_topic": "",
+    "health_topic": "",
+    "stop_request_topic": ""
+  },
+  "commissioning": {
+    "calibration_id": "",
+    "joint_zero_verified": false,
+    "gripper_mapping_verified": false,
+    "camera_verified": false,
+    "sdk_route_verified": false,
+    "sparse_command_verified": false,
+    "independent_stop_verified": false,
+    "command_timeout_verified": false,
+    "scanner_verified": false,
+    "supervisor_verified": false
+  }
+}

@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """Load the configured scene and print the named-joint/control contract."""
 import sys
+import os
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
+os.environ['MUJOCO_GL'] = 'disable'
 from cruzr_sim import CruzrEnvironment
 
 

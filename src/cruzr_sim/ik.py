@@ -1,5 +1,6 @@
 # Imported from the local Show-Harness snapshot; see docs/import-manifest.json.
 # Modified 2026-11-15: standalone package imports, portable paths, and clarified scope.
+# Modified 2026-11-19: isolate IK iterations from live MuJoCo state and caches.
 """阻尼最小二乘（DLS）逆运动学，用于 Cruzr S2 的单臂。
 
 MuJoCo 没有内置 IK，而 Show-Harness 的整套控制都建立在"给一个笛卡尔目标位姿"上，
@@ -26,6 +27,23 @@ ARM_JOINTS = (
 )
 
 
+def rotation_vector(rotation):
+    """SO(3) log with a stable axis at 180 degrees (Rodrigues is singular)."""
+    angle = np.arccos(np.clip((np.trace(rotation)-1)/2, -1.0, 1.0))
+    skew = np.array([rotation[2, 1]-rotation[1, 2],
+                     rotation[0, 2]-rotation[2, 0], rotation[1, 0]-rotation[0, 1]])
+    if angle < 1e-6:
+        return skew / 2
+    if np.pi-angle < 1e-5:
+        # The rotation axis is the eigenvector with eigenvalue +1.
+        _, vectors = np.linalg.eigh((rotation+rotation.T)/2)
+        axis = vectors[:, -1]
+        if np.dot(axis, skew) < 0:
+            axis = -axis
+        return axis * angle
+    return skew * angle / (2*np.sin(angle))
+
+
 class ArmIK:
     def __init__(self, model, data, side: str, tip_offset: float = 0.22):
         import mujoco
@@ -33,6 +51,7 @@ class ArmIK:
         self.mj = mujoco
         self.m = model
         self.d = data
+        self._scratch = mujoco.MjData(model)
         self.side = side
         self.tip_offset = tip_offset
         self.body = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_BODY, f"{side}_pgc_base_link")
@@ -70,13 +89,26 @@ class ArmIK:
               tol=2e-3):
         """Return ``(q, pos_err, rot_err)`` without changing live joint state.
 
-        IK iterations use the shared ``MjData`` as a kinematic scratch space,
-        but the arm qpos is restored before returning.  The caller must move to
-        the returned target through actuators; otherwise a held object would be
-        left behind by an instantaneous qpos jump.
+        IK iterations use a separate MjData. Live poses, contacts, Jacobians and
+        dynamics caches remain untouched, including when a solve raises.
         """
-        d, m, mj = self.d, self.m, self.mj
-        q_restore = d.qpos[self.qadr].copy()
+        target_pos = np.asarray(target_pos, dtype=float)
+        target_rot = np.asarray(target_rot, dtype=float)
+        if target_pos.shape != (3,) or not np.isfinite(target_pos).all():
+            raise ValueError('IK target position requires three finite metres')
+        if (target_rot.shape != (3, 3) or not np.isfinite(target_rot).all() or
+                not np.allclose(target_rot.T @ target_rot, np.eye(3), atol=1e-6, rtol=0) or
+                not np.isclose(np.linalg.det(target_rot), 1, atol=1e-6, rtol=0)):
+            raise ValueError('IK target rotation must be a proper orthonormal 3x3 matrix')
+        if q_seed is not None:
+            q_seed = np.asarray(q_seed, dtype=float)
+            if q_seed.shape != (7,) or not np.isfinite(q_seed).all():
+                raise ValueError('IK seed requires seven finite joint angles')
+        if (isinstance(iters, bool) or not isinstance(iters, int) or iters < 1 or
+                any(not np.isfinite(x) or x <= 0 for x in (damp, step, tol))):
+            raise ValueError('IK requires positive iterations, damping, step and tolerance')
+        d, m, mj = self._scratch, self.m, self.mj
+        d.qpos[:] = self.d.qpos
         if q_seed is not None:
             d.qpos[self.qadr] = np.clip(q_seed, self.lo, self.hi)
         q = d.qpos[self.qadr].copy()
@@ -87,17 +119,11 @@ class ArmIK:
             mj.mj_comPos(m, d)
             pos = d.xpos[self.body].copy()
             rot = d.xmat[self.body].reshape(3, 3).copy()
-            e_pos = np.asarray(target_pos, dtype=float) - pos
+            e_pos = target_pos - pos
             # 姿态误差：R_err = R_target * R_cur^T -> 轴角
-            r_err = np.asarray(target_rot, dtype=float) @ rot.T
-            ang = np.arccos(np.clip((np.trace(r_err) - 1) / 2, -1.0, 1.0))
-            if ang < 1e-6:
-                e_rot = np.zeros(3)
-            else:
-                axis = np.array(
-                    [r_err[2, 1] - r_err[1, 2], r_err[0, 2] - r_err[2, 0], r_err[1, 0] - r_err[0, 1]]
-                ) / (2 * np.sin(ang))
-                e_rot = axis * ang
+            r_err = target_rot @ rot.T
+            e_rot = rotation_vector(r_err)
+            ang = np.linalg.norm(e_rot)
             err = np.concatenate([e_pos, 0.35 * e_rot])
             en = np.linalg.norm(err)
             if en < best_err:
@@ -117,7 +143,7 @@ class ArmIK:
             d.qpos[self.qadr] = q
 
         # Report the residual of the best solution, not merely the last
-        # iteration, then restore the physical state used by the simulator.
+        # iteration. All scratch-state changes remain private to the solver.
         d.qpos[self.qadr] = best_q
         mj.mj_kinematics(m, d)
         pos = d.xpos[self.body].copy()
@@ -125,8 +151,6 @@ class ArmIK:
         pos_err = float(np.linalg.norm(np.asarray(target_pos, dtype=float) - pos))
         r_err = np.asarray(target_rot, dtype=float) @ rot.T
         rot_err = float(np.arccos(np.clip((np.trace(r_err) - 1) / 2, -1.0, 1.0)))
-        d.qpos[self.qadr] = q_restore
-        mj.mj_kinematics(m, d)
         return best_q, pos_err, rot_err
 
 

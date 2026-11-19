@@ -1,0 +1,12 @@
+{
+  "embodiment": "cruzr_s2",
+  "joint_names": ["R_shoulder_pitch_joint", "R_shoulder_roll_joint", "R_shoulder_yaw_joint", "R_elbow_roll_joint", "R_elbow_yaw_joint", "R_wrist_pitch_joint", "R_wrist_roll_joint", "right_gripper"],
+  "fps": 15,
+  "action_semantics": "absolute_joint_position",
+  "joint_unit": "rad",
+  "gripper_unit": "m",
+  "observation_precedes_action": false,
+  "semantics_verified": false,
+  "task": "Pick up the object, hold it in front of the robot face for inspection, and return it to its original position.",
+  "note": "Example only. Verify acquisition alignment/units and label actual demonstrations. Barcode decoding is an optional later task-layer extension."
+}
